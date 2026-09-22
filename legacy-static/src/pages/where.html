@@ -1,0 +1,88 @@
+<!-- title: أين نعمل؟ -->
+<!-- active: where -->
+{{HEADER}}
+
+<section class="page-hero">
+  <div class="container">
+    <h1>أين نعمل؟</h1>
+    <p>حضور HASDO في ولايات السودان — اختر ولاية لعرض المشاريع والمجتمعات والمستفيدين المرتبطين بها.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="map-panel">
+      <div>
+        <div class="map-frame reveal">
+          <div class="map-placeholder">
+            <p style="font-size:2.4rem;font-family:'IBM Plex Sans',sans-serif;font-weight:700;color:var(--blue-300);">خريطة السودان</p>
+            <p style="margin-top:8px;">تُدمج هنا الخريطة الفعلية للولايات<br>مع تفاعل على مستوى كل ولاية.</p>
+          </div>
+        </div>
+
+        <div class="map-legend map-legend--light" style="margin-top:16px;color:var(--muted);">
+          <span><i class="legend-strong"></i> تدخّل رئيسي</span>
+          <span><i class="legend-active"></i> نشاط قائم</span>
+          <span><i class="legend-presence"></i> حضور</span>
+          <span><i class="legend-none"></i> لا نشاط حالي</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="state-list reveal">
+          <button class="state-item" data-state="الخرطوم">
+            <span class="state__name">الخرطوم</span>
+            <span class="state__count">مشاريع —</span>
+          </button>
+          <button class="state-item" data-state="الجزيرة">
+            <span class="state__name">الجزيرة</span>
+            <span class="state__count">مشاريع —</span>
+          </button>
+          <button class="state-item" data-state="شمال دارفور">
+            <span class="state__name">شمال دارفور</span>
+            <span class="state__count">مشاريع —</span>
+          </button>
+        </div>
+
+        <div class="state-detail reveal" id="stateDetail" hidden>
+          <h3 id="stateDetailName">الخرطوم</h3>
+          <div class="metrics">
+            <div><strong id="stateDetailProjects">—</strong><span>مشاريع</span></div>
+            <div><strong id="stateDetailPeople">—</strong><span>مستفيدون</span></div>
+            <div><strong id="stateDetailCommunities">—</strong><span>مجتمعات</span></div>
+          </div>
+          <ul id="stateDetailList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">التوسّع</span>
+      <h2>حضور يتوسّع بالبيانات</h2>
+      <p>بمجرد توفر البيانات الفعلية، تصبح هذه الصفحة «نظام أثر HASDO»: تنقلك كل ولاية إلى مشاريعها وشركائها وتقاريرها. الخريطة التفاعلية هي التطوير القادم الأولوية.</p>
+    </div>
+    <div class="cards-grid reveal">
+      <article class="card">
+        <div class="card__icon">M</div>
+        <h3>خريطة فعليّة للولايات</h3>
+        <p>دمج SVG تفاعلي مع إضاءة الولايات حسب كثافة النشاط.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon">D</div>
+        <h3>بيانات موثّقة</h3>
+        <p>الأرقام قادمة من قاعدة المشاريع، لا أرقام ثابتة مكتوبة يدوياً.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon">T</div>
+        <h3>آخر التحديثات</h3>
+        <p>بند «آخر التحديثات» لكل ولاية يربطها بسجلّ العمل الميداني.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{{FOOTER}}

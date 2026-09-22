@@ -33,7 +33,7 @@ export default async function OverviewPage() {
     { label: 'القصص والأخبار', value: stories.length, href: '/admin/stories' },
     { label: 'الموارد', value: resources.length, href: '/admin/resources' },
     { label: 'الشركاء', value: partners.length, href: '/admin/partners' },
-    { label: 'ولاية (مقر/مواقع)', value: presence.length, href: '/admin/settings' },
+    { label: 'ولايات (مقر/مواقع)', value: presence.length, href: '/admin/settings' },
     { label: 'مجالات العمل', value: areas.length },
   ];
 
@@ -69,7 +69,7 @@ export default async function OverviewPage() {
 
       {stats.length > 0 && (
         <div className="admin-table-wrap">
-          <h2 className="h3 admin-group-title">مؤشرات الرئيسية</h2>
+          <h2 className="h3 admin-group-title">المؤشرات الرئيسية</h2>
           <table className="admin-table">
             <tbody>
               {stats.map((s) => (

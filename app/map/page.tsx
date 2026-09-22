@@ -51,7 +51,7 @@ export default async function MapPage() {
       </details>
 
       <p className="map-source">
-        الخريطة: بيانات حدود إدارية (COD-AB) من Humanitarian Data Exchange (OCHA)، فترة الاستخدام للمرجع الجغرافي فقط.
+        الخريطة: بيانات حدود إدارية (COD-AB) من Humanitarian Data Exchange (OCHA)، وللأغراض المرجعية الجغرافية فقط.
       </p>
     </main>
   );

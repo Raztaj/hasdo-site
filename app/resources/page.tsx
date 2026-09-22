@@ -50,7 +50,7 @@ export default async function ResourcesPage() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <p className="kicker">نافذة الحساب</p>
+            <p className="kicker">نافذة الشفافية</p>
             <h2 className="h2">الشفافية سياستنا، لا شعارنا</h2>
             <p className="muted">
               كل مستند هنا يعبّر عن طريقة عملنا: تقارير تُحاسَب بالأرقام،

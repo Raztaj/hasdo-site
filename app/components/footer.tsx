@@ -55,7 +55,7 @@ export default async function Footer() {
 
       <div className="container footer-bottom">
         <span>© {ORG.acronym} 2026 — {ORG.country}</span>
-        <Link href="/admin/overview" className="footer-admin">لوحة التحكم</Link>
+        <Link href="/admin/login" className="footer-admin">لوحة التحكم</Link>
         <span className="num">FIELD EDITION</span>
       </div>
     </footer>

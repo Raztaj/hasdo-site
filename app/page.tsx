@@ -103,7 +103,7 @@ export default async function HomePage() {
           </div>
           <div className="who-num">
             <strong className="num display">{activeStates.size}</strong>
-            <span>ولاية نعمل فيها</span>
+            <span>{arNoun(activeStates.size, NOUN.state)} نعمل فيها</span>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default async function HomePage() {
           <div className="container map-sect-grid">
             <div className="map-sect-copy">
               <p className="muted">
-                نعمل في {activeStates.size} ولاية، من المقر الرئيسي في الخرطوم إلى
+                نعمل في {activeStates.size} {arNoun(activeStates.size, NOUN.state)}، من المقر الرئيسي في الخرطوم إلى
                 مواقع العمل في الميدان. المشاريع تُنفّذ مع المجتمعات نفسها.
               </p>
               <p style={{ marginTop: 'var(--space-3)' }}>
@@ -202,7 +202,7 @@ export default async function HomePage() {
             <div className="impact-stats">
               <div className="impact-stat">
                 <span className="impact-num"><Counter value={activeStates.size} /></span>
-                <span className="impact-label">ولاية نعمل فيها</span>
+                <span className="impact-label">{arNoun(activeStates.size, NOUN.state)} نعمل فيها</span>
               </div>
               <div className="impact-stat">
                 <span className="impact-num"><Counter value={projects.length} /></span>

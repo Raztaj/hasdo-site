@@ -109,7 +109,7 @@ export default async function ParticipatePage() {
               ويرد خلال أيام عمل معدودة، ويكمل معك الخطوات التالية.
             </p>
             <address className="footer-contact">
-              {org.address_ar && <span><strong>المقر:</strong> {org.address_ar}</span>}
+              {org.address_ar && <span>{org.address_ar}</span>}
               {org.email && <span><strong>البريد:</strong> {org.email}</span>}
               {org.phone && <span><strong>الهاتف:</strong> {org.phone}</span>}
             </address>

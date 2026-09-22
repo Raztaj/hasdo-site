@@ -7,4 +7,4 @@ legacy-static/dist/
 .env*.local
 .env
 .DS_Store
-next-env.d.ts
+next-env.d.tssupabase/.temp/

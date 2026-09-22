@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getOrganization, getProjects, getPresence } from '@/lib/data';
+import { arNoun, NOUN } from '@/lib/site';
 import SudanSilhouette from '@/app/components/sudan-silhouette';
 
 export const metadata: Metadata = { title: 'من نحن' };
@@ -135,15 +136,15 @@ export default async function AboutPage() {
           <aside className="about-aside">
             <div className="about-stat">
               <span className="num display">{statesCount.size}</span>
-              <span>ولاية نعمل فيها</span>
+              <span>{arNoun(statesCount.size, NOUN.state)} نعمل فيها</span>
             </div>
             <div className="about-stat">
               <span className="num display">{projects.length}</span>
-              <span>مشروعاً</span>
+              <span>{arNoun(projects.length, NOUN.project)}</span>
             </div>
             <div className="about-stat">
               <span className="num display">{volunteerCount > 0 ? volunteerCount : '—'}</span>
-              <span>متطوعاً</span>
+              <span>{arNoun(volunteerCount > 0 ? volunteerCount : 0, NOUN.volunteer)}</span>
             </div>
           </aside>
         </div>

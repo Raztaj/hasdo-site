@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { MAP_LOCALITIES, MAP_STATES } from '@/lib/mapdata';
 import { stateCodeToArabic } from '@/lib/geo';
 import { getAreas, getPresence, getProjects } from '@/lib/data';
-import { AREA_SHORT, STATUS_LABELS } from '@/lib/site';
+import { AREA_SHORT, STATUS_LABELS, arNoun, NOUN } from '@/lib/site';
 import Counter from '@/app/components/counter';
 import ImpactMap from '@/app/components/impact-map';
 import SudanSilhouette from '@/app/components/sudan-silhouette';
@@ -64,23 +64,23 @@ export default async function ImpactPage() {
           <div className="impact-stats">
             <div className="impact-stat">
               <span className="impact-num">{beneficiaries > 0 ? <Counter value={beneficiaries} /> : '—'}</span>
-              <span className="impact-label">مستفيداً من المشاريع المنجزة</span>
+              <span className="impact-label">{arNoun(beneficiaries > 0 ? beneficiaries : 0, NOUN.beneficiary)} من المشاريع المنجزة</span>
             </div>
             <div className="impact-stat">
               <span className="impact-num"><Counter value={projects.length} /></span>
-              <span className="impact-label">{projects.length === 1 ? 'مشروع' : 'مشروعاً'} · منها {completed} منجزاً</span>
+              <span className="impact-label">{arNoun(projects.length, NOUN.project)} · منها {completed} {arNoun(completed, NOUN.completed)}</span>
             </div>
             <div className="impact-stat">
               <span className="impact-num">{volunteers > 0 ? <Counter value={volunteers} /> : '—'}</span>
-              <span className="impact-label">متطوعاً ساهموا في العمل</span>
+              <span className="impact-label">{arNoun(volunteers > 0 ? volunteers : 0, NOUN.volunteer)} ساهموا في العمل</span>
             </div>
             <div className="impact-stat">
               <span className="impact-num">{communities > 0 ? <Counter value={communities} /> : '—'}</span>
-              <span className="impact-label">مجتمعاً محلياً شريكاً</span>
+              <span className="impact-label">{arNoun(communities > 0 ? communities : 0, { one: 'مجتمع محلي شريك', two: 'مجتمعان محليان شريكان', threeToTen: 'مجتمعات محلية شريكة', many: 'مجتمعاً محلياً شريكاً' })}</span>
             </div>
             <div className="impact-stat">
               <span className="impact-num"><Counter value={statesCount.size} /></span>
-              <span className="impact-label">ولاية نعمل فيها</span>
+              <span className="impact-label">{arNoun(statesCount.size, NOUN.state)} نعمل فيها</span>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default async function ImpactPage() {
               <li key={m.id} className="area-impact-row">
                 <i className="dot-legend dot--office" style={{ boxShadow: 'none' }} />
                 <span>{m.name}</span>
-                <span className="num">{m.projects} مشاريع · {m.beneficiaries > 0 ? m.beneficiaries.toLocaleString('en-US') : '—'} مستفيد</span>
+                <span className="num">{m.projects} {arNoun(m.projects, NOUN.project)} · {m.beneficiaries > 0 ? `${m.beneficiaries.toLocaleString('en-US')} ${arNoun(m.beneficiaries, NOUN.beneficiary)}` : 'لا مستفيد مُسجَّل'}</span>
               </li>
             ))}
           </ul>

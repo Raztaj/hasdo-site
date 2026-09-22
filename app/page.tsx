@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { AREA_SHORT } from '@/lib/site';
+import { AREA_SHORT, arNoun, NOUN } from '@/lib/site';
 import { MAP_LOCALITIES, MAP_STATES } from '@/lib/mapdata';
 import { stateCodeToArabic } from '@/lib/geo';
 import { getAreas, getOrganization, getPartners, getPresence, getProjects, getStories } from '@/lib/data';
@@ -63,8 +63,8 @@ export default async function HomePage() {
               <Link href="/projects" className="btn btn-ghost btn-lg">اكتشف أعمالنا</Link>
             </div>
             <p className="hero-trust">
-              <strong className="num">{activeStates.size}</strong> ولاية نعمل فيها
-              {' · '}<strong className="num">{projects.length}</strong> {projects.length === 1 ? 'مشروع' : 'مشروعاً'}
+              <strong className="num">{activeStates.size}</strong> {arNoun(activeStates.size, NOUN.state)} نعمل فيها
+              {' · '}<strong className="num">{projects.length}</strong> {arNoun(projects.length, NOUN.project)}
             </p>
           </div>
 
@@ -206,19 +206,19 @@ export default async function HomePage() {
               </div>
               <div className="impact-stat">
                 <span className="impact-num"><Counter value={projects.length} /></span>
-                <span className="impact-label">{projects.length === 1 ? 'مشروع' : 'مشروعاً'}</span>
+                <span className="impact-label">{arNoun(projects.length, NOUN.project)}</span>
               </div>
               <div className="impact-stat">
                 <span className="impact-num">{beneficiaries > 0 ? <Counter value={beneficiaries} /> : '—'}</span>
-                <span className="impact-label">مستفيداً من المشاريع المنجزة</span>
+                <span className="impact-label">{arNoun(beneficiaries > 0 ? beneficiaries : 0, NOUN.beneficiary)} من المشاريع المنجزة</span>
               </div>
             </div>
 
             <div>
               <p className="muted">
                 {completed > 0
-                  ? (<>منها {completed} مشروعاً منجزاً، وعبر {volunteers > 0 ? `${volunteers} متطوعاً` : 'فرق عمل محلية'}.</>)
-                  : (<>تعمل المنظمة حالياً في {activeStates.size} ولاية، والأرقام تُضاف بمجرد توثيقها.</>)}
+                  ? (<>منها {completed} {arNoun(completed, NOUN.completed)}، وعبر {volunteers > 0 ? `${volunteers} ${arNoun(volunteers, NOUN.volunteer)}` : 'فرق عمل محلية'}.</>)
+                  : (<>تعمل المنظمة حالياً في {activeStates.size} {arNoun(activeStates.size, NOUN.state)}، والأرقام تُضاف بمجرد توثيقها.</>)}
               </p>
               <ul className="area-impact">
                 {areas.map((a, i) => {
@@ -227,7 +227,7 @@ export default async function HomePage() {
                     <li key={a.id} className="area-impact-row">
                       <span className="area-num num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                       <span>{a.name_ar}</span>
-                      <span className="num">{n} {n === 1 ? 'مشروع' : 'مشاريع'}</span>
+                      <span className="num">{n} {arNoun(n, NOUN.project)}</span>
                     </li>
                   );
                 })}

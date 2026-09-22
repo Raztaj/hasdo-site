@@ -23,41 +23,43 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-      <div className="container header-inner">
-        <Link href="/" className="brand" onClick={() => setOpen(false)} aria-label={ORG.nameAr}>
-          <img src="/img/logo-transparent.png" alt="" aria-hidden="true" className="brand-logo" loading="eager" />
-          <span className="brand-text">
-            <strong className="brand-name">{ORG.acronym}</strong>
-            <span className="brand-full">{ORG.nameAr}</span>
-          </span>
-        </Link>
+    <>
+      <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
+        <div className="container header-inner">
+          <Link href="/" className="brand" onClick={() => setOpen(false)} aria-label={ORG.nameAr}>
+            <img src="/img/logo-transparent.png" alt="" aria-hidden="true" className="brand-logo" loading="eager" />
+            <span className="brand-text">
+              <strong className="brand-name">{ORG.acronym}</strong>
+              <span className="brand-full">{ORG.nameAr}</span>
+            </span>
+          </Link>
 
-        <nav className="header-nav" aria-label="القائمة الرئيسية">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={isActive(pathname, item.href) ? 'active' : undefined}
-              aria-current={isActive(pathname, item.href) ? 'page' : undefined}
+          <nav className="header-nav" aria-label="القائمة الرئيسية">
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={isActive(pathname, item.href) ? 'active' : undefined}
+                aria-current={isActive(pathname, item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="header-actions">
+            <button
+              type="button"
+              className="burger"
+              aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
             >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="header-actions">
-          <button
-            type="button"
-            className="burger"
-            aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span /><span /><span />
-          </button>
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       {open && (
         <div className="drawer" role="dialog" aria-modal="true" aria-label="القائمة الرئيسية">
@@ -78,6 +80,6 @@ export default function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

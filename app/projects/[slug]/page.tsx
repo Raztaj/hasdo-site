@@ -7,14 +7,10 @@ import { AREA_SHORT, STATUS_LABELS } from '@/lib/site';
 import SudanSilhouette from '@/app/components/sudan-silhouette';
 
 export const dynamicParams = true;
+export const dynamic = 'force-dynamic';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {

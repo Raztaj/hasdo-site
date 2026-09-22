@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAreas, getProjects } from '@/lib/data';
 import { stateCodeToArabic } from '@/lib/geo';
+import { arNoun, NOUN } from '@/lib/site';
 import SudanSilhouette from '@/app/components/sudan-silhouette';
 
 export const metadata: Metadata = { title: 'مجالات العمل' };
@@ -76,8 +77,8 @@ export default async function AreasPage() {
               <h2 className="h2">{d.area.name_ar}</h2>
               <p className="muted">{d.area.description_ar}</p>
               <div className="area-strip-meta">
-                <span><strong className="num">{d.count}</strong> مشروعاً</span>
-                <span><strong className="num">{d.beneficiaries > 0 ? d.beneficiaries : '—'}</strong> مستفيداً</span>
+                <span><strong className="num">{d.count}</strong> {arNoun(d.count, NOUN.project)}</span>
+                <span><strong className="num">{d.beneficiaries > 0 ? d.beneficiaries : '—'}</strong> {arNoun(d.beneficiaries > 0 ? d.beneficiaries : 0, NOUN.beneficiary)}</span>
               </div>
               <p>
                 <Link href="/projects" className="link-more">اطّلع على المشاريع ←</Link>

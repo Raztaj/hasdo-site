@@ -399,14 +399,17 @@ p {
   padding-block: var(--space-7) var(--space-7);
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(220, 236, 244, 0.35), transparent 55%),
+    var(--hasdo-blue-light),
+    var(--paper);
+  background:
+    linear-gradient(180deg, var(--hasdo-blue-light), transparent 60%),
     var(--paper);
 }
 
 .maint-grid {
   display: grid;
   grid-template-columns: 7fr 5fr;
-  gap: 0 44px;
+  gap: 0 64px;
   align-items: center;
   width: min(100% - 48px, var(--max-width));
   margin-inline: auto;
@@ -417,8 +420,10 @@ p {
   margin-bottom: var(--space-2);
 }
 
-.maint-copy .muted {
+.maint-copy .hero-support {
+  color: var(--ink);
   max-width: 46ch;
+  font-size: var(--text-lg);
 }
 
 .maint-by {
@@ -439,51 +444,36 @@ p {
   text-decoration: underline;
 }
 
-.maint-mark {
+.maint-card {
   position: relative;
   display: grid;
   place-items: center;
-  height: 320px;
+  align-content: center;
+  gap: 14px;
+  height: 360px;
   border: 1px solid var(--line);
+  border-top: 3px solid var(--hasdo-blue);
+  padding: var(--space-5);
   background: var(--white);
+  box-shadow: 0 1px 0 var(--line);
 }
 
-.maint-seed {
-  width: 96px;
-  height: 96px;
-  border: 1px solid var(--hasdo-blue);
-  position: relative;
+.maint-emblem {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
 }
 
-.maint-seed::before,
-.maint-seed::after {
-  content: '';
-  position: absolute;
-  background: var(--hasdo-blue);
-}
-
-.maint-seed::before {
-  width: 96px;
-  height: 1px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.maint-seed::after {
-  width: 1px;
-  height: 96px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.maint-card-title {
+  font-family: var(--font-latin);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--ink);
 }
 
 .maint-coord {
-  position: absolute;
-  bottom: 14px;
-  left: 0;
-  right: 0;
-  text-align: center;
   font-size: var(--text-xs);
   letter-spacing: 0.16em;
   color: var(--muted);
@@ -496,11 +486,16 @@ p {
 @media (max-width: 900px) {
   .maint-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-5);
   }
 
-  .maint-mark {
-    height: 260px;
+  .maint-card {
+    height: 300px;
+  }
+
+  .maint-emblem {
+    width: 150px;
+    height: 150px;
   }
 }
 

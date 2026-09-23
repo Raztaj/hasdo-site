@@ -6,7 +6,7 @@ export default function Maintenance() {
       <header className="maint-header">
         <div className="container header-inner">
           <span className="brand">
-            <span className="brand-mark" aria-hidden="true" />
+            <img src="/img/logo-transparent.png" alt="" aria-hidden="true" className="brand-logo" loading="eager" />
             <span className="brand-text">
               <strong className="brand-name">{ORG.acronym}</strong>
               <span className="brand-full">{ORG.nameAr}</span>
@@ -20,17 +20,19 @@ export default function Maintenance() {
         <div className="container maint-grid">
           <div className="maint-copy">
             <p className="kicker num">SITE UNDER MAINTENANCE · T. KHALID</p>
-            <h1 className="display">تحت الصيانة</h1>
-            <p className="muted">
-              نعمل على تحديث الموقع وتجهيز تجربة أفضل — سنعود قريباً بإذن الله.
+            <h1 className="display">نعود قريباً</h1>
+            <p className="hero-support">
+              نعمل حالياً على تحديث الموقع وتجهيز تجربة أفضل لكم — سنعود قريباً
+              بإذن الله، بوجه جديد يحمل أهدافنا ذاتها.
             </p>
             <p className="maint-by">
               الصيانة التطويرية بإشراف <a href="mailto:info@hasdo.org">Tajelsir Khalid</a>
             </p>
           </div>
 
-          <div className="maint-mark" aria-hidden="true">
-            <span className="maint-seed" />
+          <div className="maint-card">
+            <img src="/img/logo-emblem.png" alt="" aria-hidden="true" className="maint-emblem" loading="lazy" />
+            <span className="maint-card-title">{ORG.acronym}</span>
             <span className="maint-coord num">15.5°N — 32.5°E · KRT</span>
           </div>
         </div>

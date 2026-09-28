@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import './globals.css';
 import { ORG } from '@/lib/site';
-import Maintenance from './components/maintenance';
+import Header from './components/header';
+import Footer from './components/footer';
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
   subsets: ['arabic'],
@@ -24,7 +25,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ar" dir="rtl" className={ibmPlexSansArabic.variable}>
       <body>
-        <Maintenance />
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
